@@ -27,9 +27,9 @@ def run_sql_file(path: Path) -> None:
 
 
 if __name__ == "__main__":
-    schema_file = PROJECT_ROOT / "sql" / "001_schema.sql"
-    run_sql_file(schema_file)
-    print("Skema berhasil diterapkan:", schema_file.name)
+    for schema_file in sorted((PROJECT_ROOT / "sql").glob("*.sql")):
+        run_sql_file(schema_file)
+        print("Diterapkan:", schema_file.name)
 
     with get_connection() as conn:
         rows = conn.execute(
