@@ -3,3 +3,4 @@ python-dotenv
 pydantic
 boto3
 psycopg[binary]
+pymupdf
